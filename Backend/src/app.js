@@ -2,6 +2,12 @@ import express from "express";
 import cors from "cors";
 import cookieParser from "cookie-parser";
 
+import { fileURLToPath } from "url";
+import path from "path";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
 const app = express();
 
 app.use(cors({
@@ -21,9 +27,7 @@ app.use(express.urlencoded({
 app.use(cookieParser());
 
 // DEFAULT ROUTE
-app.get("/", (_req, res) => {
-    res.send("Welcome to the Assemble API");
-});
+app.use("/", express.static(path.join(__dirname, "static")));
 
 // HEALTH CHECK ROUTE
 import healthRouter from "./routes/healthcheck.routes.js";
