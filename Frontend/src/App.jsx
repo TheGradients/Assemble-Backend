@@ -14,15 +14,15 @@ import UsernameRecover from "./components/UsernameRecover";
 import UsernameSent from "./components/UsernameSent";
 import DashBoard from "./components/DashBoard";
 import AccountCenter from "./components/AccountCenter"
-import Homepage from "./components/Homepage";
+import Homepage from "./components/homepage/Homepage";
 const App = () => {
   return (
-    <>
+    <div className="overflow-hidden no-scrollbar">
       {/* <Body/> */}
       {/* <DashBoard/> */}
       <Homepage/>
       
-    </>
+    </div>
   );
 };
 
