@@ -12,7 +12,8 @@ import {
     forgotUsername,
     forgotPassword,
     forgotPasswordVerificationCode,
-    forgotPasswordVerificationEmail
+    forgotPasswordVerificationEmail,
+    getUserData
 } from "../controllers/user.controller.js";
 import {
     registerUserSchema,
@@ -48,5 +49,6 @@ router.route("/changePassword").patch(verifyToken, validationSchema(changePasswo
 router.route("/addDetails").post(verifyToken, validationSchema(addDetailsSchema), addDetails);
 router.route("/changeEmail").patch(verifyToken, validationSchema(changeEmailSchema), changeEmail);
 router.route("/verifyNewEmail").post(verifyToken, validationSchema(verifyNewEmailSchema), verifyNewEmail);
+router.route("/data").get(verifyToken, getUserData);
 
 export default router;
